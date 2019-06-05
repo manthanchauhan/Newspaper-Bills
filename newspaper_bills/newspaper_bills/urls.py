@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from bill_manager import views as bill_manager_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', bill_manager_views.Home.as_view(), name='home'),
+    path('plan/', bill_manager_views.Plan.as_view(), name='plan'),
+    path('edit_plan/', bill_manager_views.EditPlan.as_view(), name='edit_plan'),
+    path('my_bills/', bill_manager_views.MyBills.as_view(), name='my_bills'),
+    path('bill/<int:pk>/', bill_manager_views.Bill.as_view(), name='bill'),
 ]

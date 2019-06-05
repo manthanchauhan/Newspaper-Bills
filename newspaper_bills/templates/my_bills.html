@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block Title %}
+My Bills
+{% endblock %}
+
+{% block Content %}
+<h3>Here are your past newspaper bills,</h3>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Serial No.</th>
+        <th>Month</th>
+        <th>Amount</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for bill_ in user_bills %}
+    <tr>
+        <td>{{counter.value}}</td>
+        {{counter.increment}}
+        <td><a href="{% url 'bill' bill_.id %}">{{bill_.month_name}}, {{bill_.year}}</a></td>
+        <td>{{bill_.amount}}</td>
+        {% if bill_.status is None %}
+        <td><strong>Unpaid</strong></td>
+        {% else %}
+        <td>Paid on<br>{{bill_.status}}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block Title %}
+Edit Plan
+{% endblock %}
+
+{% block Content %}
+<h3>Edit your newspaper plan here.</h3>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Save Plan</button>
+</form>
+{% endblock %}

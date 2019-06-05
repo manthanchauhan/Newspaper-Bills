@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block Title %}
+My Plan
+{% endblock %}
+
+{% block Content %}
+<h2>Hi {{request.user}}!</h2>
+<h3>Here are the details of your most recent newspaper plan.</h3>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Day</th>
+            <th>Cost of Newspaper (Rs)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Sun</strong></td>
+            <td>{{sun}}</td>
+        </tr>
+        <tr>
+            <td>Mon</td>
+            <td>{{mon}}</td>
+        </tr>
+        <tr>
+            <td>Tue</td>
+            <td>{{tue}}</td>
+        </tr>
+        <tr>
+            <td>Wed</td>
+            <td>{{wed}}</td>
+        </tr>
+        <tr>
+            <td>Thu</td>
+            <td>{{thu}}</td>
+        </tr>
+        <tr>
+            <td>Fri</td>
+            <td>{{fri}}</td>
+        </tr>
+        <tr>
+            <td><strong>Sat</strong></td>
+            <td>{{sat}}</td>
+        </tr>
+    </tbody>
+</table><br>
+<form method="post">
+    {% csrf_token %}
+    <button name="edit_plan" formmethod="post">Edit Plan</button>
+</form>
+{% endblock %}

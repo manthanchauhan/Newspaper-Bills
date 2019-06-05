@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block Title %}
+Bill-{{bill.id}}
+{% endblock %}
+
+{% block Content %}
+<strong>Bill id:</strong> {{bill.id}}<br>
+<strong>Month: </strong>{{month_name}}, {{year}}<br>
+<strong>Amount: Rs. {{bill.amount}}</strong><br>
+<strong>Paid on: </strong>
+    {% if bill.status is None and bill.current == False %}
+    <strong>Unpaid</strong>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="mark_as_paid" value="{{bill.id}}">Mark as paid</button>
+    </form>
+    {% elif bill.current == True %}
+        The month is not over yet.
+    {% else %}
+    {{bill.status}}
+    {% endif %}<br><br>
+
+<table border="1">
+    <thead>
+        <tr>
+           <th>Sun</th>
+           <th>Mon</th>
+           <th>Tue</th>
+           <th>Wed</th>
+           <th>Thu</th>
+           <th>Fri</th>
+           <th>Sat</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i in calendar_rows %}
+        <tr>
+            {% for i in 1|rjust:7 %}
+                {% if counter.value <= 0 or counter.value > days %}
+                    <td> </td>
+                {% else %}
+                    <td><p style="font-size: 25px">{{counter.value}}</p><br>
+                        {% if bill.current and counter.value < day or not bill.current %}
+                        {% if counter.value in bill.absentees %}
+                        X
+                        {% else %}
+                        O
+                        {% endif %}
+                        {% endif %}
+                    </td>
+                {% endif %}
+                {{ counter.increment }}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

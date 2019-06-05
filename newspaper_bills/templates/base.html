@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block Title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+<ul>
+    <li>Logged in as {{request.user}}</li>
+    {% url 'home' as home %}
+        {% if request.path == home %}
+    <li><strong>Home</strong></li>
+        {% else %}
+    <li><a href="{% url 'home' %}">Home</a></li>
+        {% endif %}
+    {% url 'plan' as plan %}
+        {% if request.path == plan %}
+    <li><strong>My Plan</strong></li>
+        {% else %}
+    <li><a href="{% url 'plan' %}">My Plan</a></li>
+        {% endif %}
+    {% url 'my_bills' as my_bills %}
+        {% if request.path == my_bills %}
+    <li><strong>My Bills</strong></li>
+        {% else %}
+    <li><a href="{% url 'my_bills' %}">My Bills</a></li>
+    {% endif %}
+</ul>
+<hr>
+{% block Content %}
+{% endblock %}
+</body>
+</html>
