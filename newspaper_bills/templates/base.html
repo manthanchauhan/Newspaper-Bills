@@ -9,6 +9,7 @@
 </head>
 <body>
 <ul>
+    {% if request.user.is_authenticated %}
     <li>Logged in as {{request.user}}</li>
     {% url 'home' as home %}
         {% if request.path == home %}
@@ -28,8 +29,20 @@
         {% else %}
     <li><a href="{% url 'my_bills' %}">My Bills</a></li>
     {% endif %}
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+    {% url 'signup' as signup %}
+        {% if request.path == signup %}
+    <li><strong>SignUp</strong></li>
+        {% else %}
+    <li><a href="{% url 'signup' %}">Signup</a></li>
+    {% endif %}
+    {% endif %}
 </ul>
 <hr>
+{% for message in messages %}
+    {{message}}
+{% endfor %}
 {% block Content %}
 {% endblock %}
 </body>

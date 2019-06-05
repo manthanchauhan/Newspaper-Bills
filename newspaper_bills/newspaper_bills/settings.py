@@ -53,18 +53,23 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.messages',  # used for messaging
     'django.contrib.staticfiles',
     'bill_manager',
+    'accounts',
 ]
 
+"""
+For messaging, sessions middleware must appear before messaging middleware
+Fallback is the default storage backend for messaging.
+"""
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',  # used for messaging
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',  # used for messaging
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -118,6 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'bill_manager.User'
+LOGOUT_REDIRECT_URL = 'signup'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

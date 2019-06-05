@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block Title %}
+SignUp
+{% endblock %}
+
+{% block Content %}
+<h3>Signup</h3>
+{% if form.errors %}
+    {% for field in form %}
+        {% for errors in field.errors %}
+            <strong>{{error|escape}}</strong>
+        {% endfor %}
+    {% for error in form.non_field_errors %}
+        <strong>{{error|escape}}</strong>
+    {% endfor %}
+    {% endfor %}
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">SignUp</button>
+</form>
+{% endblock %}

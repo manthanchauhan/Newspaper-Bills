@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from bill_manager import views as bill_manager_views
+from accounts import views as account_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +26,7 @@ urlpatterns = [
     path('edit_plan/', bill_manager_views.EditPlan.as_view(), name='edit_plan'),
     path('my_bills/', bill_manager_views.MyBills.as_view(), name='my_bills'),
     path('bill/<int:pk>/', bill_manager_views.Bill.as_view(), name='bill'),
+    path('signup/', account_views.SignUp.as_view(), name='signup'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('create_plan/', bill_manager_views.NewPlan.as_view(), name='create_plan'),
 ]

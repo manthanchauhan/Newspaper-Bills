@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block Title %}
+Create New Plan
+{% endblock %}
+
+{% block Content %}
+<h3>Upload your newspaper plan</h3>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Upload Plan</button>
+</form>
+{% endblock %}

@@ -5,11 +5,15 @@ from . import models, forms
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import View
 from collections import namedtuple
+from django.contrib import messages
 
 
 class Home(View):
     @staticmethod
     def get(request):
+        if request.user.plan_id is None:
+            return redirect('create_plan')
+
         # designing the calendar to display
         current_datetime = str(datetime.now())
         current_year = int(current_datetime[:4])
@@ -127,6 +131,8 @@ class EditPlan(View):
             request.user.save()
             models.Plan.objects.get(id=old_plan).delete()
 
+            messages.success(request, 'Your plan has been successfully updated!')
+
         return redirect('plan')
 
 
@@ -189,9 +195,31 @@ class Bill(View):
         return render(request, 'bill.html', calendar)
 
     @staticmethod
-    def post(pk):
+    def post(pk, request):
         bill = models.Bill.objects.get(id=pk)
         bill.paid_on = datetime.now()
         bill.save()
-
+        messages.success(request, 'Your bill has been marked as paid!')
         return redirect('bill', pk=pk)
+
+
+class NewPlan(View):
+    @staticmethod
+    def get(request):
+        form = forms.EditPlanForm()
+        return render(request, 'new_plan.html', {'form': form})
+
+    @staticmethod
+    def post(request):
+        form = forms.EditPlanForm(request.POST)
+
+        if form.is_valid():
+            plan = form.save()
+            request.user.plan_id = plan.id
+            request.user.save()
+
+            messages.success(request, 'Plan uploaded successfully!')
+            return redirect('home')
+
+        else:
+            return render(request, 'new_plan.html', {'form': form})
