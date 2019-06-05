@@ -17,4 +17,4 @@
  7. User can view past bill in "My Bills".
  8. User can mark bills as paid in "My Bills".
  
- **Note:**Bills are calculated from beginning of the month to month-end.
+ **Note:**Bills are calculated from beginning of the month to month-end.    
