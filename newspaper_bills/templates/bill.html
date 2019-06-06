@@ -11,7 +11,7 @@ Bill-{{bill.id}}
 <strong>Paid on: </strong>
     {% if bill.status is None and bill.current == False %}
     <strong>Unpaid</strong>
-    <form method="post">
+    <form method="post" action="{% url 'bill_manager:bill' %}">
         {% csrf_token %}
         <button type="submit" name="mark_as_paid" value="{{bill.id}}">Mark as paid</button>
     </form>

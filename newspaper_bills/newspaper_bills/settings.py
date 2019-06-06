@@ -91,6 +91,10 @@ TEMPLATES = [
     },
 ]
 
+"""
+This is the entry point for WSGI-compatible servers to serve the project.
+WSGI: web server gateway interface, defines how server communicates with applications.
+"""
 WSGI_APPLICATION = 'newspaper_bills.wsgi.application'
 
 
@@ -123,7 +127,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'bill_manager.User'
-LOGOUT_REDIRECT_URL = 'signup'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = 'bill_manager:home'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

@@ -45,7 +45,7 @@ My Plan
         </tr>
     </tbody>
 </table><br>
-<form method="post">
+<form method="post" action="{% url 'bill_manager:plan' %}">
     {% csrf_token %}
     <button name="edit_plan" formmethod="post">Edit Plan</button>
 </form>

@@ -6,7 +6,7 @@ Create New Plan
 
 {% block Content %}
 <h3>Upload your newspaper plan</h3>
-<form method="post">
+<form method="post" action="{% url 'bill_manager:create_plan' %}">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Upload Plan</button>

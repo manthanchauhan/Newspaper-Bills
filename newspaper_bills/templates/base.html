@@ -11,32 +11,38 @@
 <ul>
     {% if request.user.is_authenticated %}
     <li>Logged in as {{request.user}}</li>
-    {% url 'home' as home %}
+    {% url 'bill_manager:home' as home %}
         {% if request.path == home %}
     <li><strong>Home</strong></li>
         {% else %}
-    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'bill_manager:home' %}">Home</a></li>
         {% endif %}
-    {% url 'plan' as plan %}
+    {% url 'bill_manager:plan' as plan %}
         {% if request.path == plan %}
     <li><strong>My Plan</strong></li>
         {% else %}
-    <li><a href="{% url 'plan' %}">My Plan</a></li>
+    <li><a href="{% url 'bill_manager:plan' %}">My Plan</a></li>
         {% endif %}
-    {% url 'my_bills' as my_bills %}
+    {% url 'bill_manager:my_bills' as my_bills %}
         {% if request.path == my_bills %}
     <li><strong>My Bills</strong></li>
         {% else %}
-    <li><a href="{% url 'my_bills' %}">My Bills</a></li>
+    <li><a href="{% url 'bill_manager:my_bills' %}">My Bills</a></li>
     {% endif %}
     <li><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
-    {% url 'signup' as signup %}
+    {% url 'accounts:signup' as signup %}
         {% if request.path == signup %}
-    <li><strong>SignUp</strong></li>
+    <li><strong>Sign Up</strong></li>
         {% else %}
-    <li><a href="{% url 'signup' %}">Signup</a></li>
-    {% endif %}
+    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+        {% endif %}
+    {% url 'login' as login %}
+        {% if request.path == login %}
+    <li><strong>Log In</strong></li>
+        {% else %}
+    <li><a href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
     {% endif %}
 </ul>
 <hr>

@@ -18,9 +18,8 @@ My Bills
     <tbody>
     {% for bill_ in user_bills %}
     <tr>
-        <td>{{counter.value}}</td>
-        {{counter.increment}}
-        <td><a href="{% url 'bill' bill_.id %}">{{bill_.month_name}}, {{bill_.year}}</a></td>
+        <td>{{forloop.counter}}</td>
+        <td><a href="{% url 'bill_manager:bill' bill_.id %}">{{bill_.month_name}}, {{bill_.year}}</a></td>
         <td>{{bill_.amount}}</td>
         {% if bill_.status is None %}
         <td><strong>Unpaid</strong></td>

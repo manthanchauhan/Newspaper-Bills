@@ -6,7 +6,7 @@ Edit Plan
 
 {% block Content %}
 <h3>Edit your newspaper plan here.</h3>
-<form method="post">
+<form method="post" action="{% url 'bill_manager:edit_plan' %}">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Save Plan</button>

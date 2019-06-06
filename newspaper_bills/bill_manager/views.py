@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from datetime import datetime
 from . import additives
 from . import models, forms
@@ -6,9 +6,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import View
 from collections import namedtuple
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class Home(View):
+class Home(LoginRequiredMixin, View):
+    login_url = 'login'
     @staticmethod
     def get(request):
         if request.user.plan_id is None:
@@ -69,14 +71,15 @@ class Home(View):
             bill.save()
             print(bill.absentees)
 
-        return redirect('home')
+        return redirect('bill_manager:home')
 
 
-class Plan(View):
+class Plan(LoginRequiredMixin, View):
+    login_url = 'login'
     @staticmethod
     def get(request):
         plan_id = request.user.plan_id
-        plan = models.Plan.objects.get(id=plan_id)
+        plan = get_object_or_404(models.Plan, id=plan_id)
         cost_chart = {'sun': plan.sun,
                       'mon': plan.mon,
                       'tue': plan.tue,
@@ -92,14 +95,16 @@ class Plan(View):
     def post(request):
         # print(request.POST)
         if 'edit_plan' in request.POST.keys():
-            return redirect('edit_plan')
+            return redirect('bill_manager:edit_plan')
 
 
-class EditPlan(View):
+class EditPlan(LoginRequiredMixin, View):
+    login_url = 'login'
+
     @staticmethod
     def get(request):
         plan_id = request.user.plan_id
-        plan = models.Plan.objects.get(id=plan_id)
+        plan = get_object_or_404(models.Plan, id=plan_id)
         cost_chart = {'sun': plan.sun,
                       'mon': plan.mon,
                       'tue': plan.tue,
@@ -133,10 +138,12 @@ class EditPlan(View):
 
             messages.success(request, 'Your plan has been successfully updated!')
 
-        return redirect('plan')
+        return redirect('bill_manager:plan')
 
 
-class MyBills(View):
+class MyBills(LoginRequiredMixin, View):
+    login_url = 'login'
+
     @staticmethod
     def get(request):
         user = request.user
@@ -149,12 +156,12 @@ class MyBills(View):
                            bill_.paid_on,
                            bill_.id)
                       for bill_ in bills]
-        counter = additives.Counter(1)
-        return render(request, 'my_bills.html', {'user_bills': bills_info,
-                                                 'counter': counter})
+        return render(request, 'my_bills.html', {'user_bills': bills_info})
 
 
-class Bill(View):
+class Bill(LoginRequiredMixin, View):
+    login_url = 'login'
+
     @staticmethod
     def get(request, pk):
         current_datetime = str(datetime.now())
@@ -196,14 +203,16 @@ class Bill(View):
 
     @staticmethod
     def post(pk, request):
-        bill = models.Bill.objects.get(id=pk)
+        bill = get_object_or_404(models.Bill, id=pk)
         bill.paid_on = datetime.now()
         bill.save()
         messages.success(request, 'Your bill has been marked as paid!')
-        return redirect('bill', pk=pk)
+        return redirect('bill_manager:bill', pk=pk)
 
 
-class NewPlan(View):
+class NewPlan(LoginRequiredMixin, View):
+    login_url = 'login'
+
     @staticmethod
     def get(request):
         form = forms.EditPlanForm()
@@ -219,7 +228,7 @@ class NewPlan(View):
             request.user.save()
 
             messages.success(request, 'Plan uploaded successfully!')
-            return redirect('home')
+            return redirect('bill_manager:home')
 
         else:
             return render(request, 'new_plan.html', {'form': form})

@@ -7,7 +7,7 @@ Home
 {% block Content %}
 <h3>{{month_name}}, {{year}}</h3>
 your net bill for {{month_name}}, till date is <strong>Rs. {{amount}}</strong>.<br><br>
-<form method="post">
+<form method="post" action="{% url 'bill_manager:home' %}">
     {% csrf_token %}
 <table border="1">
     <thead>
