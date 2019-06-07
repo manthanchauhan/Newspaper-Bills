@@ -29,7 +29,9 @@ your net bill for {{month_name}}, till date is <strong>Rs. {{amount}}</strong>.<
                     <td> </td>
                 {% else %}
                     {% if counter.value <= day %}
-                    <td><button type="submit" name="date" value="{{counter.value}}">{{counter.value}}</button><br>
+                    <td><button type="submit" name="date" value="{{counter.value}}">
+                        {{counter.value}}
+                    </button><br>
                         {% if counter.value in absentees %}
                             X
                         {% else %}

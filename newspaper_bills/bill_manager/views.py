@@ -3,7 +3,7 @@ from datetime import datetime
 from . import additives
 from . import models, forms
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.generic import View
+from django.views.generic import View, ListView
 from collections import namedtuple
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,28 +11,30 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class Home(LoginRequiredMixin, View):
     login_url = 'login'
-    @staticmethod
-    def get(request):
-        if request.user.plan_id is None:
-            return redirect('create_plan')
+    template = 'home.html'
+    post_redirect = 'bill_manager:home'
+    no_plan_redirect = 'create_plan'
 
-        # designing the calendar to display
-        current_datetime = str(datetime.now())
-        current_year = int(current_datetime[:4])
-        current_month = int(current_datetime[5:7])
-        current_day = int(current_datetime[8:10])
+    current_datetime = str(datetime.now())
+    current_year = int(current_datetime[:4])
+    current_month = int(current_datetime[5:7])
+    current_day = int(current_datetime[8:10])
 
-        calendar = additives.generate_calendar(current_day,
-                                               current_month,
-                                               current_year)
+    def get(self, request):
+        if self.request.user.plan_id is None:
+            return redirect(self.no_plan_redirect)
+
+        calendar = additives.generate_calendar(self.current_day,
+                                               self.current_month,
+                                               self.current_year)
+
         # gathering billing information of user
-        month = current_year*100 + current_month
-
+        month = self.current_year*100 + self.current_month
         try:
-            current_month_bill = request.user.bills.get(month=month)
+            current_month_bill = self.request.user.bills.get(month=month)
         except ObjectDoesNotExist:
-            current_month_bill = models.Bill.create_bill(user=request.user, month=month)
-
+            current_month_bill = models.Bill.create_bill(user=request.user,
+                                                         month=month)
         np_absentees = []
         absentee_int = current_month_bill.absentees
         bit = 1
@@ -47,38 +49,32 @@ class Home(LoginRequiredMixin, View):
             absentee_int //= 2
 
         amount = current_month_bill.update_amount()
-        calendar['amount'] = amount
-        calendar['absentees'] = np_absentees
+        dict_ = {'amount': amount,
+                 'absentees': np_absentees
+                 }
+        return render(self.request, self.template, {**dict_, **calendar})
 
-        return render(request, 'home.html', calendar)
-
-    @staticmethod
-    def post(request):
-        print(request.POST)
+    def post(self, request):
         if 'date' in request.POST.keys():
-            date = int(request.POST['date'])
+            date = int(self.request.POST['date'])
             absentee = 2**(date-1)
-            print(f'absentee = {absentee}')
 
-            current_datetime = str(datetime.now())
-            current_year = int(current_datetime[:4])
-            current_month = int(current_datetime[5:7])
-            month = current_month + current_year*100
+            month = self.current_month + self.current_year*100
 
             bill = request.user.bills.get(month=month)
-            print(bill.absentees)
             bill.absentees = bill.absentees ^ absentee
             bill.save()
-            print(bill.absentees)
 
-        return redirect('bill_manager:home')
+        return redirect(self.post_redirect)
 
 
 class Plan(LoginRequiredMixin, View):
     login_url = 'login'
-    @staticmethod
-    def get(request):
-        plan_id = request.user.plan_id
+    template = 'plan.html'
+    redirect_url = 'bill_manager:edit_plan'
+
+    def get(self, request):
+        plan_id = self.request.user.plan_id
         plan = get_object_or_404(models.Plan, id=plan_id)
         cost_chart = {'sun': plan.sun,
                       'mon': plan.mon,
@@ -88,21 +84,20 @@ class Plan(LoginRequiredMixin, View):
                       'fri': plan.fri,
                       'sat': plan.sat
                       }
+        return render(request, self.template, cost_chart)
 
-        return render(request, 'plan.html', cost_chart)
-
-    @staticmethod
-    def post(request):
-        # print(request.POST)
+    def post(self, request):
         if 'edit_plan' in request.POST.keys():
-            return redirect('bill_manager:edit_plan')
+            return redirect(self.redirect_url)
 
 
 class EditPlan(LoginRequiredMixin, View):
     login_url = 'login'
+    form_class = forms.EditPlanForm
+    template = 'edit_plan.html'
+    redirect_url = 'bill_manager:plan'
 
-    @staticmethod
-    def get(request):
+    def get(self, request):
         plan_id = request.user.plan_id
         plan = get_object_or_404(models.Plan, id=plan_id)
         cost_chart = {'sun': plan.sun,
@@ -113,21 +108,18 @@ class EditPlan(LoginRequiredMixin, View):
                       'fri': plan.fri,
                       'sat': plan.sat
                       }
-        form = forms.EditPlanForm(initial=cost_chart)
-        return render(request, 'edit_plan.html', {'form': form})
+        form = self.form_class(initial=cost_chart)
+        return render(request, self.template, {'form': form})
 
-    @staticmethod
-    def post(request):
-        form = forms.EditPlanForm(request.POST)
+    def post(self, request):
+        form = self.form_class(request.POST)
 
         if form.is_valid():
             form_data = form.cleaned_data
-            # print(form_data)
             old_plan = request.user.plan_id
             plans = models.Plan.objects.filter(**form_data)
 
             if len(plans) == 0:
-                print('new')
                 plan = form.save()
                 request.user.plan_id = plan.id
             else:
@@ -135,17 +127,15 @@ class EditPlan(LoginRequiredMixin, View):
 
             request.user.save()
             models.Plan.objects.get(id=old_plan).delete()
-
             messages.success(request, 'Your plan has been successfully updated!')
 
-        return redirect('bill_manager:plan')
+        return redirect(self.redirect_url)
 
 
 class MyBills(LoginRequiredMixin, View):
     login_url = 'login'
 
-    @staticmethod
-    def get(request):
+    def get(self, request):
         user = request.user
         bills = sorted(list(user.bills.all()), key=lambda x: x.month, reverse=True)
         # print(bills)
@@ -162,8 +152,7 @@ class MyBills(LoginRequiredMixin, View):
 class Bill(LoginRequiredMixin, View):
     login_url = 'login'
 
-    @staticmethod
-    def get(request, pk):
+    def get(self, request, pk):
         current_datetime = str(datetime.now())
         current_day = int(current_datetime[8:10])
 
