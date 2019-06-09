@@ -6,6 +6,8 @@
         {% block Title %}
         {% endblock %}
     </title>
+    {% block Css %}
+    {% endblock %}
 </head>
 <body>
 <ul>
@@ -30,6 +32,12 @@
     <li><a href="{% url 'bill_manager:my_bills' %}">My Bills</a></li>
     {% endif %}
     <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% url 'feedbacks:feedback_form' as feedback %}
+        {% if request.path == feedback %}
+    <li><strong>Feedback</strong></li>
+        {% else %}
+    <li><a href="{% url 'feedbacks:feedback_form' %}">Feedback</a></li>
+        {% endif %}
     {% else %}
     {% url 'accounts:signup' as signup %}
         {% if request.path == signup %}
@@ -50,6 +58,9 @@
     {{message}}
 {% endfor %}
 {% block Content %}
+{% endblock %}
+
+{% block Js %}
 {% endblock %}
 </body>
 </html>

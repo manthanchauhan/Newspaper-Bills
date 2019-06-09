@@ -1,0 +1,13 @@
+<h3>Hello <strong>
+    {% if user.first_name == '' %}
+    {{user.username}}
+    {% else %}
+    {{user.first_name}}
+    {% endif %}
+</strong>,</h3>
+Your feedback with id <strong>{{feedback_id}}</strong> on {{app_name}} has been submitted
+successfully.<br>
+Your feedback is highly valuable for us, we'll definitely look forward into your suggestions.
+<br><br>
+Thanks & Regards,<br>
+Team {{app_name}}

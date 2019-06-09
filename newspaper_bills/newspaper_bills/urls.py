@@ -24,4 +24,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('login/', LoginView.as_view(), name='login'),
+    path('feedback/', include('feedbacks.urls')),
+    path('summernote/', include('django_summernote.urls')),
 ]
