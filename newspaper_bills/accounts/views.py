@@ -26,7 +26,7 @@ class SignUp(View):
             messages.success(request, 'Sign-Up was successful!\n')
             messages.info(request, 'Please add your newspaper plan, this step is needed '
                                    'to be performed now.')
-            return redirect('bill_manager:home')
+            return redirect('bill_manager:create_plan')
 
         else:
             return render(request, 'signup.html', {'form': form})

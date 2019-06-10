@@ -27,3 +27,5 @@ urlpatterns = [
     path('feedback/', include('feedbacks.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]
+
+HOME = 'bill_manager:home'

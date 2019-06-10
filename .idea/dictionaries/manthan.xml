@@ -3,6 +3,9 @@
     <words>
       <w>endblock</w>
       <w>endfor</w>
+      <w>fontsize</w>
+      <w>strikethrough</w>
+      <w>summernote</w>
     </words>
   </dictionary>
 </component>

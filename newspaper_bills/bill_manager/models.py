@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
 from datetime import datetime
+from .additives import month_name
 
 
 class Plan(models.Model):
@@ -87,6 +88,13 @@ class Bill(models.Model):
 
         self.save()
         return self.amount
+
+    def month_name(self):
+        return month_name(self.month % 100)
+
+    def year(self):
+        return self.month // 100
+
 
 
 

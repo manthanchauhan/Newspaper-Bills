@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'accounts',
     'feedbacks',
     'widget_tweaks',
-    # 'djrichtextfield',
     'django_summernote',
 ]
 
@@ -132,6 +131,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'bill_manager.User'
 LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
+HOME_URL = 'bill_manager:home'
 LOGIN_REDIRECT_URL = 'bill_manager:home'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -163,36 +164,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
 SUMMERNOTE_CONFIG = {
-    'iframe': False,
     'summernote': {
-        # As an example, using Summernote Air-mode
-        'airMode': False,
-
-        # Change editor size
-        'width': '100%',
+        'width': '75%',
         'height': '480',
+
         'toolbar': [
-          ['style', ['bold', 'italic', 'underline', 'strikethrough']],
+            ['heading', ['style']],
+            ['style', ['bold', 'italic', 'underline', 'strikethrough']],
             ['fontsize', ['fontsize']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
+            ['para', ['ul', 'ol']],
             ['link', ['linkDialogShow', 'unlink']],
         ],
-
-        # Use proper language setting automatically (default)
-        'lang': None,
-
-        # You can also add custom settings for external plugins
-            'print': {
-                         'stylesheetUrl': '/some_static_folder/printable.css',
-                     },
-                },
-
-'disable_attachment': True,
+        'placeholder': 'Describe your issue in detail...'
+    },
 }
+
+
+

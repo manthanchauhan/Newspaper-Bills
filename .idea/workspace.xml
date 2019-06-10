@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2316b481-d960-46a5-8185-66594358c14e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/manthan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/manthan.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/bill_manager/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/bill_manager/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/bill_manager/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/bill_manager/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/bill_manager/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/bill_manager/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/feedbacks/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/feedbacks/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/feedbacks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/feedbacks/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/newspaper_bills/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/newspaper_bills/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/newspaper_bills/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/newspaper_bills/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/templates/edit_plan.html" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/templates/edit_plan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/templates/feedback/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/templates/feedback/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/templates/my_bills.html" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/templates/my_bills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newspaper_bills/templates/plan.html" beforeDir="false" afterPath="$PROJECT_DIR$/newspaper_bills/templates/plan.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,22 +27,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/template/backends/django.py">
+        <entry file="file://$PROJECT_DIR$/newspaper_bills/feedbacks/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+            <state relative-caret-position="171">
+              <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/newspaper_bills/feedbacks/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="68" column="79" selection-start-line="68" selection-start-column="79" selection-end-line="68" selection-end-column="79" />
+            <state relative-caret-position="570">
+              <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -37,19 +51,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/feedback/operations_email.html">
+        <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+            <state relative-caret-position="266">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/newspaper_bills/feedbacks/models.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+            <state relative-caret-position="171">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -58,19 +84,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/feedback/user_email.html">
+        <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/new_plan.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="8" column="17" selection-end-line="12" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/feedback/form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2299">
-              <caret line="121" selection-start-line="121" selection-end-line="121" />
+              <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -78,19 +95,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1197">
-              <caret line="63" column="11" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="11" />
+            <state relative-caret-position="266">
+              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newspaper_bills/newspaper_bills/urls.py">
+        <entry file="file://$PROJECT_DIR$/newspaper_bills/accounts/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+            <state relative-caret-position="532">
+              <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
               <folding>
-                <element signature="e#639#671#0" expanded="true" />
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newspaper_bills/accounts/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,20 +128,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newspaper_bills/newspaper_bills/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="168" column="1" lean-forward="true" selection-start-line="164" selection-end-line="168" selection-end-column="1" />
+            <state relative-caret-position="396">
+              <caret line="166" selection-start-line="166" selection-end-line="166" />
               <folding>
                 <element signature="e#316#325#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newspaper_bills/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="65" selection-start-line="1" selection-start-column="65" selection-end-line="1" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -136,23 +156,16 @@
         <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/admin.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/migrations/0005_auto_20190603_1758.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/forms.py" />
-        <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/models.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/additives.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/accounts/forms.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/newspaper_bills/accounts/urls.py" />
-        <option value="$PROJECT_DIR$/newspaper_bills/accounts/views.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/newspaper_bills/templates/signup.html" />
-        <option value="$PROJECT_DIR$/newspaper_bills/templates/my_bills.html" />
         <option value="$PROJECT_DIR$/newspaper_bills/templates/bill.html" />
-        <option value="$PROJECT_DIR$/newspaper_bills/templates/edit_plan.html" />
         <option value="$PROJECT_DIR$/newspaper_bills/templates/new_plan.html" />
-        <option value="$PROJECT_DIR$/newspaper_bills/templates/plan.html" />
         <option value="$PROJECT_DIR$/newspaper_bills/.env" />
         <option value="$PROJECT_DIR$/newspaper_bills/templates/home.html" />
-        <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/views.py" />
-        <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/urls.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/feedbacks/urls.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/templates/feedback_form.html" />
         <option value="$PROJECT_DIR$/newspaper_bills/feedbacks/models.py" />
@@ -162,16 +175,25 @@
         <option value="$PROJECT_DIR$/newspaper_bills/static/form.css" />
         <option value="$PROJECT_DIR$/newspaper_bills/static/simplemde.css" />
         <option value="$PROJECT_DIR$/newspaper_bills/static/simplemde.js" />
-        <option value="$PROJECT_DIR$/newspaper_bills/templates/base.html" />
         <option value="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_markdown/utils.py" />
         <option value="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django_markdown/urls.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/templates/feedback/feedback_form.html" />
         <option value="$PROJECT_DIR$/newspaper_bills/static/summernote.js" />
-        <option value="$PROJECT_DIR$/newspaper_bills/newspaper_bills/urls.py" />
-        <option value="$PROJECT_DIR$/newspaper_bills/feedbacks/forms.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/templates/form.html" />
-        <option value="$PROJECT_DIR$/newspaper_bills/newspaper_bills/settings.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/templates/feedback/operations_email.html" />
+        <option value="$PROJECT_DIR$/newspaper_bills/templates/feedback/form.html" />
+        <option value="$PROJECT_DIR$/newspaper_bills/newspaper_bills/urls.py" />
+        <option value="$PROJECT_DIR$/newspaper_bills/newspaper_bills/__init__.py" />
+        <option value="$PROJECT_DIR$/newspaper_bills/templates/plan.html" />
+        <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/urls.py" />
+        <option value="$PROJECT_DIR$/newspaper_bills/templates/edit_plan.html" />
+        <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/models.py" />
+        <option value="$PROJECT_DIR$/newspaper_bills/templates/my_bills.html" />
+        <option value="$PROJECT_DIR$/newspaper_bills/accounts/views.py" />
+        <option value="$PROJECT_DIR$/newspaper_bills/templates/base.html" />
+        <option value="$PROJECT_DIR$/newspaper_bills/bill_manager/views.py" />
+        <option value="$PROJECT_DIR$/newspaper_bills/newspaper_bills/settings.py" />
+        <option value="$PROJECT_DIR$/newspaper_bills/feedbacks/forms.py" />
         <option value="$PROJECT_DIR$/newspaper_bills/feedbacks/views.py" />
       </list>
     </option>
@@ -201,37 +223,6 @@
               <item name="Newspaper_Bills" type="b2602c69:ProjectViewProjectNode" />
               <item name="Newspaper_Bills" type="462c0819:PsiDirectoryNode" />
               <item name="newspaper_bills" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Newspaper_Bills" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Newspaper_Bills" type="462c0819:PsiDirectoryNode" />
-              <item name="newspaper_bills" type="462c0819:PsiDirectoryNode" />
-              <item name="feedbacks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Newspaper_Bills" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Newspaper_Bills" type="462c0819:PsiDirectoryNode" />
-              <item name="newspaper_bills" type="462c0819:PsiDirectoryNode" />
-              <item name="newspaper_bills" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Newspaper_Bills" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Newspaper_Bills" type="462c0819:PsiDirectoryNode" />
-              <item name="newspaper_bills" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Newspaper_Bills" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Newspaper_Bills" type="462c0819:PsiDirectoryNode" />
-              <item name="newspaper_bills" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Newspaper_Bills" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Newspaper_Bills" type="462c0819:PsiDirectoryNode" />
-              <item name="newspaper_bills" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="feedback" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -323,12 +314,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560056138478</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added feedback form mechanism, code cleaning is required.">
+      <created>1560062220804</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1560062220804</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24944155" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -432,26 +429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -462,37 +439,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/accounts/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/accounts/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/my_bills.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
@@ -506,20 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/new_plan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/plan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="893">
-          <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -527,33 +463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/edit_plan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="931">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -588,16 +497,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/newspaper_bills/static/summernote.js" />
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/feedbacks/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/template/backends/django.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -608,20 +507,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/feedbacks/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="68" column="79" selection-start-line="68" selection-start-column="79" selection-end-line="68" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/feedback/operations_email.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/newspaper_bills/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/feedbacks/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -634,25 +536,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/feedback/form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2299">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="63" column="11" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/newspaper_bills/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-          <folding>
-            <element signature="e#639#671#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -663,22 +548,134 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/plan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/edit_plan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/newspaper_bills/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding>
+            <element signature="e#639#671#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/my_bills.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="21" column="89" selection-start-line="21" selection-start-column="89" selection-end-line="21" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/accounts/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/new_plan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/newspaper_bills/newspaper_bills/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="168" column="1" lean-forward="true" selection-start-line="164" selection-end-line="168" selection-end-column="1" />
+        <state relative-caret-position="396">
+          <caret line="166" selection-start-line="166" selection-end-line="166" />
           <folding>
             <element signature="e#316#325#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newspaper_bills/feedbacks/models.py">
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+        <state relative-caret-position="532">
+          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/bill_manager/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/feedbacks/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newspaper_bills/feedbacks/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>

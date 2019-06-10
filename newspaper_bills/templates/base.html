@@ -19,12 +19,15 @@
         {% else %}
     <li><a href="{% url 'bill_manager:home' %}">Home</a></li>
         {% endif %}
-    {% url 'bill_manager:plan' as plan %}
+    {% url 'bill_manager:create_plan' as new_plan %}
+    {% if request.path != new_plan %}
+    {% url 'bill_manager:plan' request.user.plan_id as plan %}
         {% if request.path == plan %}
     <li><strong>My Plan</strong></li>
         {% else %}
-    <li><a href="{% url 'bill_manager:plan' %}">My Plan</a></li>
+    <li><a href="{% url 'bill_manager:plan' request.user.plan_id %}">My Plan</a></li>
         {% endif %}
+    {% endif %}
     {% url 'bill_manager:my_bills' as my_bills %}
         {% if request.path == my_bills %}
     <li><strong>My Bills</strong></li>

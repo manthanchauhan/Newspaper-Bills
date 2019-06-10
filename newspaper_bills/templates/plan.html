@@ -5,7 +5,6 @@ My Plan
 {% endblock %}
 
 {% block Content %}
-<h2>Hi {{request.user}}!</h2>
 <h3>Here are the details of your most recent newspaper plan.</h3>
 <table border="1">
     <thead>
@@ -17,35 +16,35 @@ My Plan
     <tbody>
         <tr>
             <td><strong>Sun</strong></td>
-            <td>{{sun}}</td>
+            <td>{{object.sun}}</td>
         </tr>
         <tr>
             <td>Mon</td>
-            <td>{{mon}}</td>
+            <td>{{object.mon}}</td>
         </tr>
         <tr>
             <td>Tue</td>
-            <td>{{tue}}</td>
+            <td>{{object.tue}}</td>
         </tr>
         <tr>
             <td>Wed</td>
-            <td>{{wed}}</td>
+            <td>{{object.wed}}</td>
         </tr>
         <tr>
             <td>Thu</td>
-            <td>{{thu}}</td>
+            <td>{{object.thu}}</td>
         </tr>
         <tr>
             <td>Fri</td>
-            <td>{{fri}}</td>
+            <td>{{object.fri}}</td>
         </tr>
         <tr>
             <td><strong>Sat</strong></td>
-            <td>{{sat}}</td>
+            <td>{{object.sat}}</td>
         </tr>
     </tbody>
 </table><br>
-<form method="post" action="{% url 'bill_manager:plan' %}">
+<form method="post" action="{% url 'bill_manager:plan' object.id %}">
     {% csrf_token %}
     <button name="edit_plan" formmethod="post">Edit Plan</button>
 </form>

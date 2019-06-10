@@ -1,19 +1,21 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from datetime import datetime
-from . import additives
-from . import models, forms
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.generic import View, ListView
+from django.db.models.deletion import ProtectedError
+from django.views.generic import View, DetailView, ListView, CreateView
 from collections import namedtuple
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from . import models, forms
+from . import additives
 
 
 class Home(LoginRequiredMixin, View):
     login_url = 'login'
     template = 'home.html'
     post_redirect = 'bill_manager:home'
-    no_plan_redirect = 'create_plan'
+    no_plan_redirect = 'bill_manager:create_plan'
 
     current_datetime = str(datetime.now())
     current_year = int(current_datetime[:4])
@@ -68,85 +70,61 @@ class Home(LoginRequiredMixin, View):
         return redirect(self.post_redirect)
 
 
-class Plan(LoginRequiredMixin, View):
+class Plan(LoginRequiredMixin, DetailView):
     login_url = 'login'
-    template = 'plan.html'
+    template_name = 'plan.html'
+    model = models.Plan
     redirect_url = 'bill_manager:edit_plan'
 
-    def get(self, request):
-        plan_id = self.request.user.plan_id
-        plan = get_object_or_404(models.Plan, id=plan_id)
-        cost_chart = {'sun': plan.sun,
-                      'mon': plan.mon,
-                      'tue': plan.tue,
-                      'wed': plan.wed,
-                      'thu': plan.thu,
-                      'fri': plan.fri,
-                      'sat': plan.sat
-                      }
-        return render(request, self.template, cost_chart)
-
-    def post(self, request):
-        if 'edit_plan' in request.POST.keys():
-            return redirect(self.redirect_url)
+    def post(self, request, pk):
+        return redirect(self.redirect_url, pk)
 
 
-class EditPlan(LoginRequiredMixin, View):
+class EditPlan(LoginRequiredMixin, CreateView):
     login_url = 'login'
     form_class = forms.EditPlanForm
-    template = 'edit_plan.html'
-    redirect_url = 'bill_manager:plan'
+    template_name = 'edit_plan.html'
 
-    def get(self, request):
-        plan_id = request.user.plan_id
-        plan = get_object_or_404(models.Plan, id=plan_id)
-        cost_chart = {'sun': plan.sun,
-                      'mon': plan.mon,
-                      'tue': plan.tue,
-                      'wed': plan.wed,
-                      'thu': plan.thu,
-                      'fri': plan.fri,
-                      'sat': plan.sat
-                      }
-        form = self.form_class(initial=cost_chart)
-        return render(request, self.template, {'form': form})
+    def get_initial(self):
+        plan = models.Plan.objects.get(id=self.kwargs['pk'])
+        return {'sun': plan.sun,
+                'mon': plan.mon,
+                'tue': plan.tue,
+                'wed': plan.wed,
+                'thu': plan.thu,
+                'fri': plan.fri,
+                'sat': plan.sat
+                }
 
-    def post(self, request):
-        form = self.form_class(request.POST)
+    def form_valid(self, form):
+        plans = models.Plan.objects.filter(**form.cleaned_data)
 
-        if form.is_valid():
-            form_data = form.cleaned_data
-            old_plan = request.user.plan_id
-            plans = models.Plan.objects.filter(**form_data)
+        if len(plans) == 0:
+            plan = form.save()
+        else:
+            plan = plans[0]
 
-            if len(plans) == 0:
-                plan = form.save()
-                request.user.plan_id = plan.id
-            else:
-                request.user.plan_id = plans[0].id
+        self.request.user.plan_id = plan.id
+        self.request.user.save()
 
-            request.user.save()
-            models.Plan.objects.get(id=old_plan).delete()
-            messages.success(request, 'Your plan has been successfully updated!')
+        try:
+            models.Plan.objects.get(id=self.kwargs['pk']).delete()
+        except ProtectedError:
+            pass
 
-        return redirect(self.redirect_url)
+        messages.success(self.request, 'Your plan has been successfully updated!')
+        return redirect('bill_manager:plan', self.request.user.plan_id)
 
 
-class MyBills(LoginRequiredMixin, View):
+class MyBills(LoginRequiredMixin, ListView):
     login_url = 'login'
+    model = models.Bill
+    template_name = 'my_bills.html'
+    context_object_name = 'user_bills'
+    ordering = ['-month']
 
-    def get(self, request):
-        user = request.user
-        bills = sorted(list(user.bills.all()), key=lambda x: x.month, reverse=True)
-        # print(bills)
-        bill = namedtuple('bill', ['month_name', 'year', 'amount', 'status', 'id'])
-        bills_info = [bill(additives.month_name(bill_.month % 100),
-                           bill_.month//100,
-                           bill_.amount,
-                           bill_.paid_on,
-                           bill_.id)
-                      for bill_ in bills]
-        return render(request, 'my_bills.html', {'user_bills': bills_info})
+    def get_queryset(self):
+        return self.request.user.bills.all()
 
 
 class Bill(LoginRequiredMixin, View):
@@ -199,25 +177,20 @@ class Bill(LoginRequiredMixin, View):
         return redirect('bill_manager:bill', pk=pk)
 
 
-class NewPlan(LoginRequiredMixin, View):
+class NewPlan(LoginRequiredMixin, CreateView):
     login_url = 'login'
+    template_name = 'new_plan.html'
+    form_class = forms.EditPlanForm
 
-    @staticmethod
-    def get(request):
-        form = forms.EditPlanForm()
-        return render(request, 'new_plan.html', {'form': form})
+    def form_valid(self, form):
+        plans = models.Plan.objects.filter(**form.cleaned_data)
 
-    @staticmethod
-    def post(request):
-        form = forms.EditPlanForm(request.POST)
-
-        if form.is_valid():
+        if len(plans) == 0:
             plan = form.save()
-            request.user.plan_id = plan.id
-            request.user.save()
-
-            messages.success(request, 'Plan uploaded successfully!')
-            return redirect('bill_manager:home')
-
         else:
-            return render(request, 'new_plan.html', {'form': form})
+            plan = plans[0]
+
+        self.request.user.plan_id = plan.id
+        self.request.user.save()
+        messages.success(self.request, 'Plan uploaded successfully!')
+        return redirect('bill_manager:home')

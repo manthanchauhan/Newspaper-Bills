@@ -21,10 +21,10 @@ My Bills
         <td>{{forloop.counter}}</td>
         <td><a href="{% url 'bill_manager:bill' bill_.id %}">{{bill_.month_name}}, {{bill_.year}}</a></td>
         <td>{{bill_.amount}}</td>
-        {% if bill_.status is None %}
+        {% if bill_.paid_on is None %}
         <td><strong>Unpaid</strong></td>
         {% else %}
-        <td>Paid on<br>{{bill_.status}}</td>
+        <td>Paid on<br>{{bill_.paid_on}}</td>
         {% endif %}
     </tr>
     {% endfor %}
