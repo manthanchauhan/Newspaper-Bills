@@ -22,6 +22,8 @@ class FeedbackView(LoginRequiredMixin, FormView):
                 }
 
     def form_valid(self, form):
+        for file in self.request.FILES.keys():
+            print(file)
         image = self.request.FILES.get('image', None)
         form_data = form.cleaned_data
         feedback = models.Feedback.objects.create(user=self.request.user,

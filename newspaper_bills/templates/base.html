@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,64 +7,129 @@
         {% block Title %}
         {% endblock %}
     </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     {% block Css %}
     {% endblock %}
 </head>
 <body>
-<ul>
-    {% if request.user.is_authenticated %}
-    <li>Logged in as {{request.user}}</li>
-    {% url 'bill_manager:home' as home %}
-        {% if request.path == home %}
-    <li><strong>Home</strong></li>
-        {% else %}
-    <li><a href="{% url 'bill_manager:home' %}">Home</a></li>
-        {% endif %}
-    {% url 'bill_manager:create_plan' as new_plan %}
-    {% if request.path != new_plan %}
-    {% url 'bill_manager:plan' request.user.plan_id as plan %}
-        {% if request.path == plan %}
-    <li><strong>My Plan</strong></li>
-        {% else %}
-    <li><a href="{% url 'bill_manager:plan' request.user.plan_id %}">My Plan</a></li>
-        {% endif %}
-    {% endif %}
-    {% url 'bill_manager:my_bills' as my_bills %}
-        {% if request.path == my_bills %}
-    <li><strong>My Bills</strong></li>
-        {% else %}
-    <li><a href="{% url 'bill_manager:my_bills' %}">My Bills</a></li>
-    {% endif %}
-    <li><a href="{% url 'logout' %}">Logout</a></li>
-    {% url 'feedbacks:feedback_form' as feedback %}
-        {% if request.path == feedback %}
-    <li><strong>Feedback</strong></li>
-        {% else %}
-    <li><a href="{% url 'feedbacks:feedback_form' %}">Feedback</a></li>
-        {% endif %}
-    {% else %}
-    {% url 'accounts:signup' as signup %}
-        {% if request.path == signup %}
-    <li><strong>Sign Up</strong></li>
-        {% else %}
-    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
-        {% endif %}
-    {% url 'login' as login %}
-        {% if request.path == login %}
-    <li><strong>Log In</strong></li>
-        {% else %}
-    <li><a href="{% url 'login' %}">Log In</a></li>
-        {% endif %}
-    {% endif %}
-</ul>
-<hr>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="text: solid white;">
+    <a class="navbar-brand" href="#">Newspapers</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {% if request.user.is_authenticated %}
+                {% url 'bill_manager:home' as home %}
+                {% if request.path == home %}
+                    <li class="nav-item active">
+                        <a class="nav-link">Home</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'bill_manager:home' %}">Home</a>
+                    </li>
+                {% endif %}
+            
+                {% url 'bill_manager:create_plan' as new_plan %}
+                {% if request.path != new_plan %}
+                    {% url 'bill_manager:plan' request.user.plan_id as plan %}
+                    {% if request.path == plan %}
+                        <li class="nav-item active">
+                            <a class="nav-link">My Plan</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'bill_manager:plan' request.user.plan_id %}">
+                                My Plan
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            
+                {% url 'bill_manager:my_bills' as my_bills %}
+                {% if request.path == my_bills %}
+                    <li class="nav-item active">
+                        <a class="nav-link active">My Bills</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'bill_manager:my_bills' %}">
+                            My Bills
+                        </a>
+                    </li>
+                {% endif %}
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">
+                        Logout<br>
+                    </a>
+                </li>
+            
+                {% url 'feedbacks:feedback_form' as feedback %}
+                {% if request.path == feedback %}
+                    <li class="nav-item"><a class="nav-link active">
+                        Feedback
+                    </a></li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'feedbacks:feedback_form' %}">
+                            Feedback
+                        </a>
+                    </li>
+                {% endif %}
+            
+            {% else %}
+                {% url 'accounts:signup' as signup %}
+                {% if request.path == signup %}
+                    <li class="nav-item"><a class="nav-link active">
+                        Sign Up
+                    </a></li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:signup' %}">
+                            Signup
+                        </a>
+                    </li>
+                {% endif %}
+            
+                {% url 'login' as login %}
+                {% if request.path == login %}
+                    <li class="nav-item"><a class="nav-link active">
+                        Log In
+                    </a></li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">
+                            Log In
+                        </a>
+                    </li>
+                {% endif %}
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
 {% for message in messages %}
     {{message}}
 {% endfor %}
+
 {% block Content %}
 {% endblock %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 {% block Js %}
 {% endblock %}
+
+<footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+    </div>
+</footer>
+
 </body>
 </html>

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "newspaper-bills",
+  "private_key_id": "b82748ea528cec947352a00a2d826b09f0b5b5d9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDpKuVXnJTaHegO\nDdAAcwQTVgAGO1ip6+xp11BmHD+uehrQMl2KDlBXGCRDJzTp1Er+RA8riRgd6xfY\nS4mLOUvg57GLY2uoJ7ufbaTHEtR9vqKSnYf7UK+0Ik/mNe18TLCR18BTxuW2y3KN\n1tmhdjcZUrjbz86S1ThglyHYJE7VAzm7Iikv4g8ILeon7DdWwNDpoOwerYV7XCQr\n1mcw2OSKMN4ysJ6yQGPzy6iDv4WtuiHvAe/Ro830QqrjE1Zg9R+qj8WXu2Xqhw6E\npXRzxqYtDH/ixVvB4w48sypB9pMyvzpZwClh+11K7vjPgFExGsOv8Vb+3dnltY+b\nkyVUKJ9RAgMBAAECggEAFtiupyJ/DU4v3iypTFn4tMJQ90taWS/2NrqztIWhEcIC\nHZNJygyz/4yshO3zB9RW0sotaFkjBU9zQyzHmd4v2qYpJdzEgDIAdtMh+aWVL4r9\n1/rah5v002QnSwnOrsa+6FNpE2xiNsKBg3dhVKpGJNOPrG4Usht1TjWQyeJo3QMn\ngSa+5FpfkJWS31zkGT3IIqFvU6KWvrm3Kd2qexzv4JaWP2ZGj5ufBvItWdf/Ryux\ngiXR41pBdITAs0WeoUV/61TaSg0++W/Xo4xzi5TnqKb7a6wF2ny9h+J6fg1qwzDw\nMAHXVAin9TO2QPmXovO3HR6JXmO1esWvT+9fSHQFZwKBgQD6KDiNEl3FIF7PLxSb\npxSklQjOkQw9hZAvWt3XsNDN2Br3jiZu6qes6VastOZSVQF26NFI5y0v1OL8lvde\n44WA/B8Rnq3Qes/K9Tj+xVhL2jj38641au/2zFawPE6/hoRJK0M+tv7BQLAEh1DK\nR77BfjJQH+uShJD1SX0Flax6NwKBgQDunRad7N6bysfuYmWnCvNg/zz2nwjwCvyy\nb5/xwkW41HiyFHFkOmdQyByWtPEJHyfoPq/nMWtSw8XtuSZvfb/xQDMgA4Q5YNpn\nIAjFVRz05uc40Ea1f5HCADzO1f/Rk1Nsuo5njap3P9Gz+HWqur3v3M43XvQJxGcn\n5nXp2iPOtwKBgEWgZkUVpJXWca0W/JRqR7ubY60jABYrk7sqfm6nXya8DJ10qkva\n8jqVY7OEUkr+L/8pw/6XoaMbjOYjGs0FZMZG5lrgIJ7TX/ysjmWTBgVuwsZ4w7dI\ngWve6g35ay2xwiYfbYMKKhQd7iAEjb8Pgw+WEWjtyYKpdTNgdfTU+QG3AoGAWfpA\nkhLFKsg/tiPCo0fc2MHGslTsIOBzw7GWBas1cWoljTlqPNpNJUggh6/5iHAIM2qY\nGD0pdE9ArtD3rmkj3QxRewv4a06bbPHGfOsIfU0o+eKIF17gjuBaDcDis5uzhLeg\nhWoFUuxs3kmdzWCXyQBhfr2+loRKReCArEtG32cCgYEAxkBim2gHrByykxJaExZp\nhuzme2XJrCs40MFoUgRA9LgWGoNX71B29nIgNplyHb4koRtByGdrqH0jSUSL9zAr\n3hKU/rBP6+ceOofDZeD9wgsnS90eUEoTZQLloigGELFsnmJEd6eICuDZ2Oh5T6+R\nkteUhJEBPagWl+/svmBcIks=\n-----END PRIVATE KEY-----\n",
+  "client_email": "newspaper-bills@appspot.gserviceaccount.com",
+  "client_id": "101910517256289673250",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/newspaper-bills%40appspot.gserviceaccount.com"
+}

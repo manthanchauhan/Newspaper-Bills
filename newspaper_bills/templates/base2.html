@@ -1,0 +1,46 @@
+<ul class="navbar-nav mr-auto">
+    {% if request.user.is_authenticated %}
+    <li class="nav-item active">Logged in as {{request.user}}</li>
+    {% url 'bill_manager:home' as home %}
+        {% if request.path == home %}
+    <li class="nav-item active">Home</li>
+        {% else %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'bill_manager:home' %}">Home</a></li>
+        {% endif %}
+    {% url 'bill_manager:create_plan' as new_plan %}
+    {% if request.path != new_plan %}
+    {% url 'bill_manager:plan' request.user.plan_id as plan %}
+        {% if request.path == plan %}
+    <li class="nav-item active">My Plan</li>
+        {% else %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'bill_manager:plan' request.user.plan_id %}">My Plan</a></li>
+        {% endif %}
+    {% endif %}
+    {% url 'bill_manager:my_bills' as my_bills %}
+        {% if request.path == my_bills %}
+    <li class="nav-item active">My Bills</li>
+        {% else %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'bill_manager:my_bills' %}">My Bills</a></li>
+    {% endif %}
+    <li class="nav-item"><a href="{% url 'logout' %}">Logout</a></li>
+    {% url 'feedbacks:feedback_form' as feedback %}
+        {% if request.path == feedback %}
+    <li><strong>Feedback</strong></li>
+        {% else %}
+    <li><a href="{% url 'feedbacks:feedback_form' %}">Feedback</a></li>
+        {% endif %}
+    {% else %}
+    {% url 'accounts:signup' as signup %}
+        {% if request.path == signup %}
+    <li><strong>Sign Up</strong></li>
+        {% else %}
+    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+        {% endif %}
+    {% url 'login' as login %}
+        {% if request.path == login %}
+    <li><strong>Log In</strong></li>
+        {% else %}
+    <li><a href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
+    {% endif %}
+</ul>

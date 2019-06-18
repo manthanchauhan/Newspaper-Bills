@@ -9,6 +9,6 @@ Log In
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Log In</button>
-</form>
+</form><br>
 Do not have an account? Sign up <a href="{% url 'accounts:signup' %}">here</a>
 {% endblock %}

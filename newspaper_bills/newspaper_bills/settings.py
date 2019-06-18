@@ -41,7 +41,7 @@ server.
 DEBUG = True
 
 """
-List of hosts which the website should serve, other that localhosts.
+List of hosts which the website should serve, other than localhost.
 """
 ALLOWED_HOSTS = []
 
