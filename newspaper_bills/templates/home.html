@@ -6,10 +6,11 @@ Home
 
 {% block Content %}
 <h3>{{month_name}}, {{year}}</h3>
-your net bill for {{month_name}}, till date is <strong>Rs. {{amount}}</strong>.<br><br>
+your net bill for {{month_name}}, till date is <strong>Rs. {{amount}}</strong>.<br><br><br>
+<div class="row justify-content-center">
 <form method="post" action="{% url 'bill_manager:home' %}">
     {% csrf_token %}
-<table border="1">
+<table>
     <thead>
         <tr>
            <th>Sun</th>
@@ -29,17 +30,22 @@ your net bill for {{month_name}}, till date is <strong>Rs. {{amount}}</strong>.<
                     <td> </td>
                 {% else %}
                     {% if counter.value <= day %}
-                    <td><button type="submit" name="date" value="{{counter.value}}">
-                        {{counter.value}}
-                    </button><br>
+                    <td>
                         {% if counter.value in absentees %}
-                            X
+                            <button type="submit" name="date" class="btn btn-danger btn-block" value="{{counter.value}}">
+                                {{counter.value}}
+                            </button>
                         {% else %}
-                            O
+                            <button type="submit" name="date" class="btn btn-primary btn-block" value="{{counter.value}}">
+                                {{counter.value}}
+                            </button>
                         {% endif %}
+<!--                    <br>-->
                     </td>
                     {% else %}
-                    <td><p style="font-size: 25px">{{counter.value}}</p></td>
+                    <td><button type="submit" name="date" class="btn btn-dark disabled" value="{{counter.value}}">
+                        {{counter.value}}
+                    </button></td>
                 {% endif %}
                 {% endif %}
                 {{ counter.increment }}
@@ -48,4 +54,5 @@ your net bill for {{month_name}}, till date is <strong>Rs. {{amount}}</strong>.<
     {% endfor %}
     </tbody>
 </table></form><br>
+</div>
 {% endblock %}

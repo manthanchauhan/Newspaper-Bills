@@ -6,11 +6,12 @@ My Plan
 
 {% block Content %}
 <h3>Here are the details of your most recent newspaper plan.</h3>
-<table border="1">
+<div class="row justify-content-center">
+<table class="plan-table table-striped table-reflow">
     <thead>
         <tr>
-            <th>Day</th>
-            <th>Cost of Newspaper (Rs)</th>
+            <th style="padding: 0px 25px 0px 25px;">Day</th>
+            <th style="padding: 0px 25px 0px 25px;">Cost of Newspaper (Rs)</th>
         </tr>
     </thead>
     <tbody>
@@ -43,9 +44,9 @@ My Plan
             <td>{{object.sat}}</td>
         </tr>
     </tbody>
-</table><br>
+</table></div><br>
 <form method="post" action="{% url 'bill_manager:plan' object.id %}">
     {% csrf_token %}
-    <button name="edit_plan" formmethod="post">Edit Plan</button>
+    <button name="edit_plan" class="btn btn-primary col-1" formmethod="post">Edit Plan</button>
 </form>
 {% endblock %}

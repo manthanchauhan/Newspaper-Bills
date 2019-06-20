@@ -121,10 +121,10 @@ class MyBills(LoginRequiredMixin, ListView):
     model = models.Bill
     template_name = 'my_bills.html'
     context_object_name = 'user_bills'
-    ordering = ['-month']
+    # ordering = ['-month']
 
     def get_queryset(self):
-        return self.request.user.bills.all()
+        return sorted(self.request.user.bills.all(), key=lambda x: x.month, reverse=True)
 
 
 class Bill(LoginRequiredMixin, View):
