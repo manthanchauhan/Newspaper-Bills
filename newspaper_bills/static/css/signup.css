@@ -1,0 +1,14 @@
+.signup_form {
+    text-align: left;
+    max-width: 100%;
+    border:3px;
+    border-style:solid;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 20px 0px 0px 0px;
+}
+
+.heading {
+    margin: 20px 0px 0px 0px;
+    padding: 0px;
+}

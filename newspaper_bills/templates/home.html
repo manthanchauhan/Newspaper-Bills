@@ -1,58 +1,70 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block Title %}
 Home
 {% endblock %}
 
+{% block Css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock %}
+
 {% block Content %}
-<h3>{{month_name}}, {{year}}</h3>
-your net bill for {{month_name}}, till date is <strong>Rs. {{amount}}</strong>.<br><br><br>
-<div class="row justify-content-center">
-<form method="post" action="{% url 'bill_manager:home' %}">
-    {% csrf_token %}
-<table>
-    <thead>
-        <tr>
-           <th>Sun</th>
-           <th>Mon</th>
-           <th>Tue</th>
-           <th>Wed</th>
-           <th>Thu</th>
-           <th>Fri</th>
-           <th>Sat</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for i in calendar_rows %}
-        <tr>
-            {% for i in 1|rjust:7 %}
-                {% if counter.value <= 0 or counter.value > days %}
-                    <td> </td>
-                {% else %}
-                    {% if counter.value <= day %}
-                    <td>
-                        {% if counter.value in absentees %}
-                            <button type="submit" name="date" class="btn btn-danger btn-block" value="{{counter.value}}">
-                                {{counter.value}}
-                            </button>
+<div class="text-center">
+    <div class="heading">
+        <h3>{{month_name}}, {{year}}</h3>
+        your net bill for the month, till date is <strong>Rs. {{amount}}</strong>.<br><br><br>
+    </div>
+    
+    <div class="row justify-content-center">
+    <div class="calendar row justify-content-center col-3">
+        <form method="post" action="{% url 'bill_manager:home' %}">
+            {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                   <th>Sun</th>
+                   <th>Mon</th>
+                   <th>Tue</th>
+                   <th>Wed</th>
+                   <th>Thu</th>
+                   <th>Fri</th>
+                   <th>Sat</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in calendar_rows %}
+                <tr>
+                    {% for i in 1|rjust:7 %}
+                        {% if counter.value <= 0 or counter.value > days %}
+                            <td> </td>
                         {% else %}
-                            <button type="submit" name="date" class="btn btn-primary btn-block" value="{{counter.value}}">
+                            {% if counter.value <= day %}
+                            <td>
+                                {% if counter.value in absentees %}
+                                    <button type="submit" name="date" class="btn btn-danger btn-block btn-lg col-12" value="{{counter.value}}">
+                                        {{counter.value}}
+                                    </button>
+                                {% else %}
+                                    <button type="submit" name="date" class="btn btn-primary btn-block col-12 btn-lg" value="{{counter.value}}">
+                                        {{counter.value}}
+                                    </button>
+                                {% endif %}
+        <!--                    <br>-->
+                            </td>
+                            {% else %}
+                            <td><button type="submit" name="date" class="btn btn-dark disabled col-12 btn-lg" value="{{counter.value}}">
                                 {{counter.value}}
-                            </button>
+                            </button></td>
                         {% endif %}
-<!--                    <br>-->
-                    </td>
-                    {% else %}
-                    <td><button type="submit" name="date" class="btn btn-dark disabled" value="{{counter.value}}">
-                        {{counter.value}}
-                    </button></td>
-                {% endif %}
-                {% endif %}
-                {{ counter.increment }}
+                        {% endif %}
+                        {{ counter.increment }}
+                    {% endfor %}
+                </tr>
             {% endfor %}
-        </tr>
-    {% endfor %}
-    </tbody>
-</table></form><br>
+            </tbody>
+        </table></form><br>
+    </div>
+    </div>
 </div>
 {% endblock %}

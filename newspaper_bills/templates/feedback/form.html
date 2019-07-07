@@ -1,13 +1,137 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 
 {% block Title %}
 Feedback
 {% endblock %}
 
+{% block Css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+{% endblock %}
+
 {% block Content %}
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Submit</button>
-</form>
+<!--ERROR MESSAGES-->
+<div class="container">
+    {% for message in messages %}
+        {% if 'error' in message.tags %}
+        <div class="text-danger">
+            <i class="fas fa-exclamation-triangle"></i>
+            {{message}}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+<!-- FEEDBACK FORM -->
+<div class="form col-8">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    
+        <div class="form-group">
+            {{form.username.label_tag}}
+            
+            <div class="text-danger">
+            {% for error in form.username.errors %}
+                <i class="fas fa-exclamation-triangle"></i>
+                {{error|escape}}
+            {% endfor %}
+            </div>
+    
+            <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+                {% render_field form.username class="form-control" %}
+    
+                <small class="form-text text-muted">
+                {{ form.username.help_text }}
+                </small>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            {{form.email.label_tag}}
+            
+            <div class="text-danger">
+            {% for error in form.email.errors %}
+                <i class="fas fa-exclamation-triangle"></i>
+                {{error|escape}}
+            {% endfor %}
+            </div>
+            
+            <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            </div>
+            {% render_field form.email class="form-control" %}
+    
+            <small class="form-text text-muted">
+            {{ form.email.help_text }}
+            </small>
+            </div>
+        </div>
+    
+    
+       <div class="form-group">
+            {{form.subject.label_tag}}
+            
+            <div class="text-danger">
+            {% for error in form.subject.errors %}
+                <i class="fas fa-exclamation-triangle"></i>
+                {{error|escape}}
+            {% endfor %}
+            </div>
+            
+            <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-question-circle"></i></span>
+            </div>
+            {% render_field form.subject class="form-control" %}
+            
+            <small class="form-text text-muted">
+            {{ form.email.help_text }}
+            </small>
+            </div>
+        </div>
+    
+            <div class="form-group">
+            {{form.message.label_tag}}
+            <div class="text-danger">
+            
+            {% for error in form.message.errors %}
+                <i class="fas fa-exclamation-triangle"></i>
+                {{error|escape}}
+            {% endfor %}
+            </div>
+            {% render_field form.message %}
+                <small class="form-text text-muted">
+            {{ form.message.help_text }}
+            </small>
+            </div>
+    
+        <div class="image_input">
+            {{form.image.label_tag}}
+        
+            <div class="text-danger">
+            {% for error in form.image.errors %}
+                <i class="fas fa-exclamation-triangle"></i>
+                {{error|escape}}
+            {% endfor %}
+            </div>
+            
+            {% render_field form.image %}
+            <small class="form-text text-muted">
+            {{ form.image.help_text }}
+            </small>
+        </div>
+    
+      <button class="btn btn-primary btn-block" type="submit">Submit</button>
+    
+      </form>
+</div>
+</div>
+{% endblock %}
+
+{% block Script %}
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
 {% endblock %}

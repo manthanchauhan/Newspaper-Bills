@@ -1,38 +1,50 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block Title %}
 My Bills
 {% endblock %}
 
+{% block Css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/my_bills.css' %}">
+{% endblock %}
+
 {% block Content %}<br>
-<h3>Here are your past newspaper bills,</h3><br>
-<div class="row justify-content-center">
-<table class="table-hover">
-    <thead>
-    <tr>
-        <th style="padding: 0px 20px 0px 20px;">Serial No.</th>
-        <th style="padding: 0px 20px 0px 20px;">Month</th>
-        <th style="padding: 0px 20px 0px 20px;">Amount</th>
-        <th style="padding: 0px 20px 0px 20px;">Status</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for bill_ in user_bills %}
-    <tr>
-        <td>{{forloop.counter}}</td>
-        <td><a href="{% url 'bill_manager:bill' bill_.id %}" class="text-decoration-none">
-            {{bill_.month_name}}, {{bill_.year}}
-        </a></td>
-        <td class="text-monospace">{{bill_.amount}}</td>
-        {% if bill_.paid_on is None %}
-        <td><span class="text-danger">Unpaid</span></td>
-        {% else %}
-        <td><span class="text-muted text-sm">Paid on:   </span>
-            <span class="text-monospace">{{bill_.paid_on}}</span></td>
-        {% endif %}
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div class="text-center">
+    <div class="heading">
+        <h3>You Newspaper Bills</h3>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="bills">
+            <table class="table-hover">
+                <thead>
+                <tr>
+                    <th style="padding: 0px 20px 0px 20px;">Serial No.</th>
+                    <th style="padding: 0px 20px 0px 20px;">Month</th>
+                    <th style="padding: 0px 20px 0px 20px;">Amount</th>
+                    <th style="padding: 0px 20px 0px 20px;">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for bill_ in user_bills %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><a href="{% url 'bill_manager:bill' bill_.id %}" class="text-decoration-none">
+                        {{bill_.month_name}}, {{bill_.year}}
+                    </a></td>
+                    <td class="text-monospace">{{bill_.amount}}</td>
+                    {% if bill_.paid_on is None %}
+                    <td><span class="text-danger">Unpaid</span></td>
+                    {% else %}
+                    <td><span class="text-muted text-sm">Paid on:   </span>
+                        <span class="text-monospace">{{bill_.paid_on}}</span></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {% endblock %}

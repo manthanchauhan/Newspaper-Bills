@@ -1,0 +1,11 @@
+.heading {
+    padding: 40px 0px 30px 0px;
+}
+
+.bills {
+    max-width: 100%;
+    border:3px;
+    border-style:solid;
+    border-radius: 15px;
+    padding: 3px 7px 10px 7px;
+}

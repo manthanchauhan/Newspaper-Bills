@@ -1,0 +1,14 @@
+.edit_form {
+    text-align: left;
+    max-width: 100%;
+    border:3px;
+    border-style:solid;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 40px 0px 0px 0px;
+}
+
+.heading {
+    margin: 40px 0px 0px 0px;
+    padding: 0px;
+}

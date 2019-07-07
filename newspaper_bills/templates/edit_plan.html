@@ -1,14 +1,48 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
 
 {% block Title %}
 Edit Plan
 {% endblock %}
 
+{% block Css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/edit_plan.css' %}">
+{% endblock %}
+
 {% block Content %}
-<h3>Edit your newspaper plan here.</h3>
-<form method="post" action="{% url 'bill_manager:edit_plan' request.user.plan_id %}">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Save Plan</button>
-</form>
+<div class="text-center">
+    <div class="heading">
+        <h3>Edit Your Plan</h3>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="edit_form col-2">
+            <form method="post" action="{% url 'bill_manager:edit_plan' request.user.plan_id %}">
+            {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group row form-control-sm">
+                        <div class="text-danger">
+                        {% for error in field.errors %}
+                            <i class="fas fa-exclamation-triangle"></i>
+                           {{error|escape}}
+                        {% endfor %}
+                        </div>
+                        
+                        <label class="col-sm-2 col-form-label">{{field.label_tag}}</label>
+    
+                        <div class="col-sm-10">
+                            {% render_field field class="form-control" %}
+                        </div>
+                        <small class="form-text text-muted">
+                            {{ field.help_text }}
+                            </small>
+                     </div>
+                {% endfor %}
+                
+            <button type="submit" class="btn btn-primary col-12">Save Plan</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

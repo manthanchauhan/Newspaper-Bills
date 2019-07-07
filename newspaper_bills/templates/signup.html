@@ -1,25 +1,52 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
 
 {% block Title %}
 SignUp
 {% endblock %}
 
+{% block Css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
 {% block Content %}
-<h3>Signup</h3>
-{% if form.errors %}
-    {% for field in form %}
-        {% for errors in field.errors %}
-            <strong>{{error|escape}}</strong>
-        {% endfor %}
-    {% for error in form.non_field_errors %}
-        <strong>{{error|escape}}</strong>
-    {% endfor %}
-    {% endfor %}
-{% endif %}
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">SignUp</button>
-</form><br>
+<div class="text-center">
+    <div class="heading">
+        <h3>Signup</h3>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="signup_form col-4">
+            <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{field.label_tag}}
+            
+                    <div class="text-danger">
+                    {% for error in field.errors %}
+                        <i class="fas fa-exclamation-triangle"></i>
+                        {{error|escape}}
+                    {% endfor %}
+                    </div>
+    
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        {% render_field field class="form-control" %}
+            
+                        <small class="form-text text-muted">
+                        {{ field.help_text }}
+                        </small>
+                    </div>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary col-12">Sign-Up</button>
+            </form>
+        </div>
+    </div><br>
 Already have an account? Login <a href="{% url 'login' %}">here</a>.
+</div>
 {% endblock %}
